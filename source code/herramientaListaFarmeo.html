@@ -1,0 +1,99 @@
+<!--
+DESTACABLE DEL CÓDIGO: - Utilización del identificador '!doctype' para HTML5.
+                       - Utilización de la etiqueta 'charset' para identificar el juego de caracteres utilizado.
+                       - Utilización de hoja de estilos css interna.
+                       - Utilización de Javascript para crear una 'aplicación'.
+                       - Uso de expresiones regulares en Javascript.
+                       - Interpretación y tratamiento de texto vía 'textarea'.
+                       - Diseño de la función 'getParameterByName(uri ,name)'.
+-->
+
+<!doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Farm-generator</title>
+
+	<style type="text/css">
+		div#contenedor {
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 50px;
+			width: 900px;
+		}
+
+		div#caja_fondo {
+			width: 100%;
+		}
+
+		button#generar {
+			width: 100%;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			height: 30px;
+			font-size: 18px;
+		}
+
+		input {
+			display: block;
+			margin-bottom: 10px;
+
+		}
+
+		textarea#datos {
+			float: left;
+			margin-right: 20px;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+		function getParameterByName(uri ,name) {
+  
+		  var url = document.createElement("a");
+		  url.href = uri;
+		  var res = new RegExp('[\?&]' + name.replace(/\[/g, '\\\[').replace(/\]/g, '\\\]') + '(?:=([^&#]*))?(?:[&#]|$)' ).exec(url);
+		  return res ? (res[1] ? decodeURIComponent(res[1].replace(/\+/g, ' ')) : '' ) : null;
+		}
+
+
+		function generar() {
+
+		  var lineas = document.getElementById("datos").value.split("\n");
+		  var n_lineas = lineas.length;
+		  var tiempo = parseInt(document.getElementById("tiempo").value);
+		  var origen = document.getElementById("origen").value;
+		  var elemento = 0;
+		  var objetivo = getParameterByName( lineas[elemento], "id");
+		  var aux = "";
+
+		  for ( var i = 0; i < n_lineas; i++) {
+
+		    aux = aux + "\'setTimeout(function(){window.open(" + '\"game.php?village=' + origen + "&target=" + objetivo + '&screen=place\")},' + tiempo + ");\' +" + "\n";
+		    tiempo = tiempo + 2000;
+		    elemento = elemento + 1;
+		    objetivo = getParameterByName( lineas[elemento], "id");
+		   }
+		   document.getElementById("resultado").value=aux;
+		}
+
+		function seleccionar() {
+			document.getElementById("resultado").select();
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="contenedor">
+		<textarea id="datos" rows="5" cols="80" placeholder='http://es28.guerrastribales.es/game.php?village=686&target=2052&screen=place'></textarea>
+		<input id="tiempo" type="number" step="2000" placeholder="Tiempo en ms"></input>
+		<input id="origen" placeholder="ID del pueblo origen"><br>
+		<button id="generar" onclick="generar()" >Generar</button><br>
+		<textarea onclick="seleccionar()" id="resultado" rows="5" cols="100"></textarea>
+
+	</div>
+
+</body>
+
+</html>

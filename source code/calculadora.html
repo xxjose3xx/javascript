@@ -1,0 +1,106 @@
+<!--
+ DESTACABLE DEL CÓDIGO: - Utilización del identificador '!doctype' para HTML5.
+                        - Utilización de hoja de estilos css interna.
+                        - Maquetación con HTML.
+                        - Utilización de Javascript para crear una 'aplicación'.
+-->
+
+<!doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculadora</title>
+
+	<style type="text/css">
+		div#contenedor {
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 50px;
+			width: 900px;
+		}
+
+		div#test {
+			float: left;
+			display: block;
+		}
+
+		input {
+			float: left;
+		}
+	</style>
+
+	<script type="text/javascript">
+
+		function calcular() {
+			var c1 = [0, 10, 12, 14, 17, 21, 25, 30, 36, 43, 52, 62, 74, 89, 107, 128, 154, 185, 222, 266, 319, 383, 460, 552, 662, 795, 954, 1145, 1374, 1648, 1978];
+			var c2 = [0, 20, 24, 29, 35, 41, 50, 60, 72, 86, 103, 124, 149, 178, 214, 257, 308, 370, 444, 532, 639];
+			var c3 = [0, 19, 23, 27, 33, 39, 47, 57, 68, 82, 98, 118, 141, 169, 203, 244, 293, 351, 422, 506, 607];
+			var c4 = [0, 0];
+			var c5 = [0, 24];
+			var c6 = [0, 8, 10, 12, 14, 17, 20, 24, 29, 34, 41, 50, 59, 71, 86, 103, 123, 148, 177, 213, 256];
+			var c7 = [0, 6, 7, 9, 10, 12, 15, 18, 21, 26, 31, 37, 45, 53, 64, 77, 92, 111, 133, 160, 192, 230, 276, 331, 397, 477, 573, 687, 824, 989, 1187];
+			var c8 = [0, 6, 7, 9, 10, 12, 15, 18, 21, 26, 31, 37, 45, 53, 64, 77, 92, 111, 133, 160, 192, 230, 276, 331, 397, 477, 573, 687, 824, 989, 1187];
+			var c9 = [0, 6, 7, 9, 10, 12, 15, 18, 21, 26, 31, 37, 45, 53, 64, 77, 92, 111, 133, 160, 192, 230, 276, 331, 397, 477, 573, 687, 824, 989, 1187];
+			var c10 = [0, 5, 6, 7, 9, 10, 12, 15, 18, 21, 26, 31, 37, 45, 53, 64, 77, 92, 111, 133, 160, 192, 230, 276, 331, 397, 477, 573, 687, 824, 989];
+			var c11 = [0, 6, 7, 9, 10, 12, 15, 18, 21, 26, 31, 37, 45, 53, 64, 77, 92, 111, 133, 160, 192, 230, 276, 331, 397, 477, 573, 687, 824, 989, 1187];
+			var c12 = [0, 5, 6, 7, 9, 10, 12, 15, 18, 21, 26];
+			var c13 = [0, 8, 10, 12, 14, 17, 20, 24, 29, 34, 41, 50, 59, 71, 86, 103, 123, 148, 177, 213, 256];
+			var c14 = [0, 24, 29, 35, 41, 50, 60, 72, 86, 103, 124, 149, 178, 214, 257, 308];
+			var c15 = [0, 42, 50, 60, 73, 87, 105, 125, 150, 181, 217, 260, 312, 374, 449, 539, 647, 777, 932, 1118, 1342];
+			var c16 = [0, 512, 614, 737];
+			var c17 = [0, 16, 19, 23, 28, 33, 40, 48, 57, 69, 83, 99, 119, 143, 171, 205, 247, 296, 355, 426, 511, 613, 736, 883, 1060, 1272];
+
+			var suma = c1[document.getElementById("c1").value] +
+					   c2[document.getElementById("c2").value] +
+					   c3[document.getElementById("c3").value] +
+					   c4[document.getElementById("c4").value] +
+					   c5[document.getElementById("c5").value] +
+					   c6[document.getElementById("c6").value] +
+					   c7[document.getElementById("c7").value] +
+					   c8[document.getElementById("c8").value] +
+					   c9[document.getElementById("c9").value] +
+					   c10[document.getElementById("c10").value] +
+					   c11[document.getElementById("c11").value] +
+					   c12[document.getElementById("c12").value] +
+					   c13[document.getElementById("c13").value] +
+					   c14[document.getElementById("c14").value] +
+					   c15[document.getElementById("c15").value] +
+					   c16[document.getElementById("c16").value] +
+					   c17[document.getElementById("c17").value];
+
+			document.getElementById("c18").value = suma;
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="contenedor">
+		
+		<input id="c1" type="number" min="0" max="30" placeholder="Edificio Principal">
+		<input id="c17" type="number" min="0" max="25" placeholder="Cuartel">
+		<input id="c2" type="number" min="0" max="20" placeholder="Cuadra">
+		<input id="c3" type="number" min="0" max="20" placeholder="Herrería">
+		<input id="c4" type="number" min="0" max="1" placeholder="Plaza de Reuniones">
+		<input id="c5" type="number" min="0" max="1" placeholder="Estatua">
+		<input id="c6" type="number" min="0" max="25" placeholder="Mercado">
+		<input id="c7" type="number" min="0" max="30" placeholder="Leñador">
+		<input id="c8" type="number" min="0" max="30" placeholder="Barrera">
+		<input id="c9" type="number" min="0" max="30" placeholder="Mina de Hierro">
+		<input id="c10" type="number" min="0" max="30" placeholder="Granja">
+		<input id="c11" type="number" min="0" max="30" placeholder="Almacén">
+		<input id="c12" type="number" min="0" max="10" placeholder="Escondrijo">
+		<input id="c13" type="number" min="0" max="20" placeholder="Muralla">
+		<input id="c14" type="number" min="0" max="15" placeholder="Taller">
+		<input id="c15" type="number" min="0" max="20" placeholder="Torre de Vigilancia">
+		<input id="c16" type="number" min="0" max="3" placeholder="Corte">
+		<input type="button" value="Calcular" onclick="calcular()">
+		<input id="c18" readonly>
+
+	</div>
+
+</body>
+
+</html>
+
+

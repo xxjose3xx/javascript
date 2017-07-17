@@ -18,21 +18,26 @@ Anotación: Puedes seguir trabajando en otra pestaña mientras el script está e
 
 javascript:
 
-if(document.URL.indexOf("try=confirm") != -1) {
-	var texto = '<p>Fecha' +
+//Constantes
+var ventana = "try=confirm";
+var lugarAnclaje = "TD#content_value";
+var botonGo = "troop_confirm_go";
+
+if(document.URL.indexOf(ventana) != -1) {
+	var insertado = '<p>Fecha' +
 	'<input id="n3" maxlength="2" size="2" type="text" placeholder="dia" />' +
 	'<input id="n2" maxlength="2" size="2" type="text" placeholder="mes" />' +
 	'<input id="n1" maxlength="4" size="4" type="text" placeholder="Año" />' +
 	'<input type="button" onclick="hoy()" value="Hoy">' +
 	'</p>' +
 	'<p>Hora' +
-	'<input id="n4" maxlength="2" size="2" type="text" placeholder="hora" />' +
-	'<input id="n5" maxlength="2" size="2" type="text" placeholder="minuto" />' +
-	'<input id="n6" maxlength="2" size="2" type="text" placeholder="sec." />' +
-	'<input id="n7" maxlength="3" size="3" type="text" placeholder="milisec." /></p>' +
+	'<input id="n4" maxlength="2" size="2" type="text" placeholder="h" />' +
+	'<input id="n5" maxlength="2" size="2" type="text" placeholder="m" />' +
+	'<input id="n6" maxlength="2" size="2" type="text" placeholder="s" />' +
+	'<input id="n7" maxlength="3" size="3" type="text" placeholder="ms" /></p>' +
 	'<p><input type="button" onclick="prepararLanzamiento()" value="Preparar ataque">' +
 	'<span id="texto" style="color:red;font-weight: bold"></span></p>';
-	$('TD#content_value').append(texto);
+	$(lugarAnclaje).append(insertado);
 
 	function prepararLanzamiento() {
 		var anyo = parseInt(document.getElementById("n1").value);
@@ -47,7 +52,7 @@ if(document.URL.indexOf("try=confirm") != -1) {
 		var lanzamientoAt = lanzamiento.valueOf();
 
 		document.getElementById("texto").innerHTML = "Ataque Preparado!!";
-		setTimeout(function(){ document.getElementById("troop_confirm_go").click(); }, parseInt(lanzamientoAt - Timing.getCurrentServerTime()));
+		setTimeout(function(){ document.getElementById(botonGo).click(); }, parseInt(lanzamientoAt - Timing.getCurrentServerTime()));
 	}
 
 	function hoy() {

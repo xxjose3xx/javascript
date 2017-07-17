@@ -22,6 +22,7 @@ javascript:
 var ventana = "try=confirm";
 var lugarAnclaje = "TD#content_value";
 var botonGo = "troop_confirm_go";
+var msg1 = "Este script debe usarse desde la ventana de confirmación del ataque/apoyo";
 
 if(document.URL.indexOf(ventana) != -1) {
 	var insertado = '<p>Fecha' +
@@ -64,6 +65,6 @@ if(document.URL.indexOf(ventana) != -1) {
 		document.getElementById("n1").value = aux.getFullYear();
 	}
 } else {
-	alert("Este script debe usarse desde la ventana de confirmación del ataque/apoyo");
+	alert(msg1);
 }
 

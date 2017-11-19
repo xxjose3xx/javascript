@@ -6,7 +6,7 @@
 // @grant       none
 // ==/UserScript==
 
-var lista = document.getElementsByClassName('pic');
+var lista = document.getElementsByClassName("wrapper")[0].getElementsByClassName("pic");
 var expositor = document.createElement('img');
 var estilos = 'display: block; text-align: center; position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; image-orientation: from-image;';
 var i = -1;

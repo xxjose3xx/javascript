@@ -72,7 +72,7 @@ function iniciarCadenaDeAtaques() {
     TribalWars.hideLoadingIndicator();
 }
 
-if(document.URL.indexOf(ventana) != -1)
+if(document.URL.indexOf("screen=am_farm") != -1)
     iniciarCadenaDeAtaques();
 else
   alert("Este script se ejecuta desde el asistente de granaja!");

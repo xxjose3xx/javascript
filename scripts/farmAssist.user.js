@@ -1,4 +1,3 @@
-
 /*
 Creador: Deagle aka JABERU.
 Función: Automatiza el envío de la página del asistente de granja.
@@ -26,6 +25,8 @@ function iniciarCadenaDeAtaques() {
 
     function enviarAtaque(objetivo, plantilla) {
 
+        console.log("Enviando ataque... (" + (indice+1) + "/" + longitud + ")");
+
         t.target = objetivo;
 
         var r = function(e) {
@@ -51,10 +52,12 @@ function iniciarCadenaDeAtaques() {
                 headers: {"TribalWars-Ajax": 1},
                 success: function(a) {
                     TribalWars.handleResponse(a, r, i);
+                    console.log("Ataque enviado con éxito! (" + (indice+1) + "/" + longitud + ")");
                     if(++indice < longitud)
                         enviarAtaque(lista[indice].id.slice(8), plantilla);
                 },
                 error: function(a, e) {
+                    console.log("Se ha producido un error. (" + (indice+1) + "/" + longitud + ")");
                     if(0 !== a.readyState) {
                         if(429 === a.status)
                             UI.ErrorMessage(_("f1ac6646f49d65cbe50901b805abfbf8"), 3e3);
@@ -73,6 +76,6 @@ function iniciarCadenaDeAtaques() {
 }
 
 if(document.URL.indexOf("screen=am_farm") != -1)
-    iniciarCadenaDeAtaques();
+    console.clear(), console.log("Iniciando cadena de ataques..."), iniciarCadenaDeAtaques();
 else
   alert("Este script se ejecuta desde el asistente de granaja!");

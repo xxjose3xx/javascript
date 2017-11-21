@@ -1,14 +1,12 @@
-/*
-Creador: Deagle aka JABERU.
-Función: Automatiza el envío de la página del asistente de granja.
-Modo de uso: Cargar el script en la ventana del asistente de granja y esperar.
-             Una vez que el script termine, lanzará una alerta indicándolo.
-             Es posible que el script omita algún pueblo objetivo. Para evitarlo
-             basta con ajustar el tiempo de repeticin del bucle (por defecto 500ms).
-Anotación: Este script funciona también en la versión para navegador móvil.
-*/
-
-javascript:
+// ==UserScript==
+// @name        farmAssist
+// @namespace   guerrastribales
+// @description Automatiza el envío de la página del asistente de granja.
+// @include     https://*.guerrastribales.es/game.php?village*screen=am_farm*
+// @icon        https://dses.innogamescdn.com/8.105/35420/graphic/icons/farm_assistent.png
+// @version     1
+// @grant       none
+// ==/UserScript==
 
 function iniciarCadenaDeAtaques() {
 

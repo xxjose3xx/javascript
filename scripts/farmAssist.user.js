@@ -4,7 +4,7 @@
 // @description Automatiza el envío de la página del asistente de granja.
 // @include     https://*.guerrastribales.es/game.php?village*screen=am_farm*
 // @icon        https://dses.innogamescdn.com/8.105/35420/graphic/icons/farm_assistent.png
-// @version     2.1
+// @version     2
 // @grant       none
 // ==/UserScript==
 

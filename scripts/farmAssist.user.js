@@ -10,9 +10,7 @@
 
 function iniciarCadenaDeAtaques() {
 
-    var lista = $('[class^="report_"]').each(function(index, element){
-        element = element.id.slice(8); //TODO. test
-    });
+    var lista = $('[class^="report_"]');
     var plantilla = $('a[class^="farm_village"]:first').attr('onclick').match(/\d+/g)[1];
     var indice = 0;
     var longitud = lista.length;
@@ -71,7 +69,7 @@ function iniciarCadenaDeAtaques() {
     }
 
     TribalWars.showLoadingIndicator();
-    enviarAtaque(lista[indice], plantilla);
+    enviarAtaque(lista[indice].id.slice(8), plantilla);
     TribalWars.hideLoadingIndicator();
 }
 

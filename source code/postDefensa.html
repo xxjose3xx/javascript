@@ -1,0 +1,109 @@
+<!doctype HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Farm-generator</title>
+
+    <style type="text/css">
+        div#contenedor {
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 50px;
+            width: 900px;
+        }
+
+        div#caja_fondo {
+            width: 100%;
+        }
+
+        button#generar {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 30px;
+            font-size: 18px;
+        }
+
+        input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea#datos {
+            float: left;
+            margin-right: 20px;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function generar() {
+
+          var lineas = document.getElementById("datos").value.split("\n");
+          var n_lineas = lineas.length - 2;
+          var destino = document.getElementById("destino").value;
+          var coord;
+          var coord2;
+          var jugador = "";
+          var hora = "";
+          var tropa = "";
+          var informe = "";
+          var splitted;
+          var aux = "Pueblo atacado: " + document.getElementById("destino").value + "\n" + 
+                    "Muralla: " + document.getElementById("muralla").value + "\n\n" +
+                    "[b][u]Ataques entrantes[/u][/b]\n" + 
+                    "[table]\n" + "[**]Pueblo atacante[||]Jugador[||]Hora llegada[||]Tropa más lenta[||]Informe[/**]\n";
+
+          for ( var i = 1; i <= n_lineas; i++) {
+
+            splitted = lineas[i].split("\t");
+            coord2 = splitted[2].trim();
+            coord = "[coord]" +  coord2.substring(coord2.length-12, coord2.length-5) + "[/coord]";
+            jugador = "[player]" + splitted[3].trim() + "[/player]";
+            hora = splitted[5].substring(splitted[5].length-13, splitted[5].length-1);
+
+            switch(splitted[0].trim().toLowerCase()) {
+              case "ariete": tropa = "[unit]ram[/unit]";
+                             break;
+              case "hacha": tropa = "[unit]axe[/unit]";
+                            break;
+              case "espía": tropa = "[unit]spy[/unit]";
+                            break;
+              case "cavp": tropa = "[unit]heavy[/unit]";
+                            break;
+              case "cavl": tropa = "[unit]light[/unit]";
+                            break;
+              case "espada": tropa = "[unit]sword[/unit]";
+                            break;
+              default: tropa = "[unit]desconocido[/unit]";
+            }
+
+            aux = aux + "[*]" + coord + "[|]" + jugador + "[|]" + hora + "[|]" + tropa + "[|]" + informe + "[/*]\n";
+           }
+
+           aux = aux + "[/table]";
+
+           document.getElementById("resultado").value=aux;
+        }
+
+        function seleccionar() {
+            document.getElementById("resultado").select();
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <div id="contenedor">
+        <textarea id="datos" rows="5" cols="80" placeholder='selecciona desde "Orden" hasta "elegir todos" (ambos incluidos) y pégalo aquí'></textarea>
+        <input id="destino" placeholder="Pueblo Atacado"><br>
+        <input id="muralla" placeholder="Nivel muralla"><br>
+        <button id="generar" onclick="generar()">Generar</button><br>
+        <textarea onclick="seleccionar()" id="resultado" rows="5" cols="100"></textarea>
+
+    </div>
+
+</body>
+
+</html>

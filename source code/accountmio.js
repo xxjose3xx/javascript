@@ -9,6 +9,7 @@
 //#     -Puede saltar fallo por desbordamiento del server.
 //########################################################
 
+javascript:
 function farmAssist() {
 
     var template = $('a[class^="farm_village"]:first').attr('onclick').match(/\d+/g)[1];
@@ -41,6 +42,7 @@ if(document.URL.indexOf("screen=am_farm") != -1) farmAssist();
 //#     -Puede saltar fallo por desbordamiento del server.
 //########################################################
 
+javascript:
 function sendUnits(a, t) {
     var r = $(".farm_village_" + a);
     if (r.hasClass("farm_icon_disabled")) return false;
@@ -78,6 +80,7 @@ if(document.URL.indexOf("screen=am_farm") != -1) farmAssist();
 //#     -Mayor coste temporal.
 //########################################################
 
+javascript:
 function farmAssist() {
 
     var template = $('a[class^="farm_village"]:first').attr('onclick').match(/\d+/g)[1];

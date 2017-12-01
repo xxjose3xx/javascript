@@ -1,3 +1,5 @@
+javascript:
+
 $.ajax({
     url: "https://raw.githubusercontent.com/xxjose3xx/javascript/master/scripts/farmAssist.user.js",
     dataType: "text",

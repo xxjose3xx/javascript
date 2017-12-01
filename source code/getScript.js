@@ -1,5 +1,5 @@
 $.ajax({
-    url: "https://raw.githubusercontent.com/xxjose3xx/javascript/master/scripts/farmAssist.user.js",
+    url: "",
     dataType: "text",
     success: function(data, status) {
         eval(data);

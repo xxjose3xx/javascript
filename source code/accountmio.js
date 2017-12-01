@@ -89,19 +89,22 @@ function farmAssist() {
     var index = 0;
 
     function sendUnits() {
-        var r = $(".farm_village_" + a);
+        var target = target_list[index].id.slice(8);
+        var r = $(".farm_village_" + target);
         if (r.hasClass("farm_icon_disabled")) return false;
-        if (!Accountmanager.farm.unitsAppearAvailableAB(t)) return UI.ErrorMessage(_("8c51142762038a5b8e6c677aabcbedff")), false;
+        if (!Accountmanager.farm.unitsAppearAvailableAB(template)) return UI.ErrorMessage(_("8c51142762038a5b8e6c677aabcbedff")), false;
         var i = {
-            target: target_list[index].id.slice(8),
-            template_id: t,
+            target: target,
+            template_id: template,
             source: game_data.village.id
         };
         return $.post(Accountmanager.send_units_link, i, function(e) {
-            $(".farm_village_" + a).addClass("farm_icon_disabled").addClass("done"), Accountmanager.farm.updateOwnUnitsAvailable(e.current_units);
+            $(".farm_village_" + target).addClass("farm_icon_disabled").addClass("done"), Accountmanager.farm.updateOwnUnitsAvailable(e.current_units);
             if(++index < size) sendUnits()
-        }), Accountmanager.farm.hide_attacked && Accountmanager.farm.updateNonAttacked(a), false;
+        }), Accountmanager.farm.hide_attacked && Accountmanager.farm.updateNonAttacked(target), false;
     }
+  
+    sendUnits();
 }
 
 if(document.URL.indexOf("screen=am_farm") != -1) farmAssist();

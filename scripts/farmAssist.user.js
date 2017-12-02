@@ -8,7 +8,7 @@
 // @grant       none
 // ==/UserScript==
 
-javascript:
+//javascript:
 
 function farmAssist() {
 

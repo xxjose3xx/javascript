@@ -22,7 +22,7 @@ function farmAssist() {
     function sendUnits() {
         var target = target_list[index].id.slice(8);
         var r = $(".farm_village_" + target);
-        if (r.hasClass("farm_icon_disabled")) return TribalWars.hideLoadingIndicator(), UI.ErrorMessage("Error: Intentando atacar un objetivo ya atacado.", 3000);
+        //if (r.hasClass("farm_icon_disabled")) return TribalWars.hideLoadingIndicator(), UI.ErrorMessage("Error: Intentando atacar un objetivo ya atacado.", 3000);
         if (!Accountmanager.farm.unitsAppearAvailableAB(template)) return UI.ErrorMessage(_("8c51142762038a5b8e6c677aabcbedff")), TribalWars.hideLoadingIndicator();
         var i = {
             target: target,

@@ -1,10 +1,45 @@
 <div class="vis float_left" style="margin: 4px 0 0 10px; min-width: 125px;">
-	<h4>Configuración:</h4>
-	<table class="vis" style="width: 100%">
-		<tbody><tr><td class="nowrap">Llegada: <input value="" size="11" id="sample1" maxlength="12" placeholder="hh:mm:ss:nnn" class="" type="text"></td></tr><tr><td class="nowrap">Lanzamiento: <input value="" size="11" maxlength="12" placeholder="hh:mm:ss:nnn" id="sample2" class="" type="text"></td></tr>
-<tr><td><input id="sample3" class="btn btn-target-action" value="Sample_" type="submit"></td></tr>
-			</tbody></table>
+    <h4>Configuración:</h4>
+    <table class="vis" style="width: 100%">
+        <tbody><tr><td class="nowrap">Llegada: <input value="" size="5" id="sample1" maxlength="12" placeholder="hh:mm:ss:nnn" class="" type="text"></td></tr><tr><td class="nowrap">Lanzamiento: <input value="" size="5" maxlength="12" placeholder="hh:mm:ss:nnn" id="sample2" class="" type="text"></td></tr>
+            <tr><td><input id="sample3" class="btn btn-target-action" value="Sample_" type="submit"></td></tr>
+        </tbody></table>
+    </div>
+
+///////////////////////////////////////////////////////////////////
+
+<div class="vis float_left" style="margin: 4px 0 0 10px; min-width: 125px;">
+    <h4>Configuración:</h4>
+    <table class="vis" style="width: 100%">
+        <tbody>
+            <tr>
+                <td class="nowrap">
+                    <span id="op1">Calcular</span>
+                    <input id="switch" min="0" max="1" style="width:30px;" type="range" value="0">
+                    <span id="op2">Programar</span>
+                </td>
+            </tr>
+            <tr>
+                <td id="opt1" class="nowrap">Llegada:
+                    <input size="5" id="sample1" maxlength="12" placeholder="hh:mm:ss:nnn" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td id="opt2" class="nowrap" style="display: none;">Lanzamiento:
+                    <input size="5" id="sample2" maxlength="12" placeholder="hh:mm:ss:nnn" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input id="sample3" class="btn btn-target-action" value="Sample_" type="submit">
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
+///////////////////////////////////////////////////////////////////
+
 
 '<div class="popup_box_container">
     <div class="popup_box show" id="popup_box_popup_command" style="width: 700px;">
@@ -125,6 +160,36 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="vis float_left" style="margin: 4px 0 0 10px; min-width: 125px;">
+                <h4>Configuración:</h4>
+                <table class="vis" style="width: 100%">
+                    <tbody>
+                        <tr>
+                            <td class="nowrap">
+                                <span id="op1" style="font-weight: bold">Calcular</span>
+                                <input id="switch" min="0" max="1" style="width:30px;" type="range" value="0">
+                                <span id="op2">Programar</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="opt1" class="nowrap">Llegada: 
+                                <input size="5" id="sample1" maxlength="12" placeholder="hh:mm:ss:nnn" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="opt2" class="nowrap" style="display: none;">Lanzamiento: 
+                                <input size="5" id="sample2" maxlength="12" placeholder="hh:mm:ss:nnn" type="text">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input id="sample3" class="btn btn-target-action" value="Calcular" type="submit">
+                                <input id="sample4" class="btn btn-target-action" value="Programar" type="submit" style="display: none;">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <div id="target_selection" class="target-select clearfix vis float_left">
                 <h4>Objetivos:</h4>
                 <table class="vis" style="width: 100%">

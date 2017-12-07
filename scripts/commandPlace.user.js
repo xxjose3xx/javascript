@@ -195,7 +195,6 @@ function programar() {
     $("#cancel")[0].style.display="";
     $("#target_attack")[0].setAttribute("onclick", "sendCommand(3)");
     $("#target_support")[0].setAttribute("onclick", "sendCommand(2)");
-    $("#target_snipe")[0].style.display="";
 };
 
 function buildTime(hour, day, milliseconds, travelTime) {

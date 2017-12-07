@@ -190,6 +190,7 @@ function programar() {
 
     lanzamiento.setUTCMinutes(lanzamiento.getUTCMinutes() + new Date().getTimezoneOffset())
     launch = lanzamiento;
+    $("#prog")[0].addClass("btn-disabled);
     $("#target_attack")[0].setAttribute("onclick", "sendCommand(3)");
     $("#target_support")[0].setAttribute("onclick", "sendCommand(2)");
     $("#target_snipe")[0].style.display="";

@@ -118,28 +118,28 @@
                 </tbody>
             </table>
             <div class="vis float_left" style="margin: 4px 0 0 10px; min-width: 125px;">
-                <h4><span id="op1" style="font-weight: bold">Calcular</span><input id="switch" min="0" max="1" style="width:30px;" type="range" value="0"><span id="op2" style="font-weight: normal">Programar</span></h4>
+                <h4><span id="op1" style="font-weight: bold">Calcular</span><input id="switch" min="0" max="1" style="width:30px;" type="range" value="0" tabindex="11"><span id="op2" style="font-weight: normal">Programar</span></h4>
                 <table class="vis" style="width: 100%">
                     <tbody>
                         <tr>
                             <td id="opt1" class="nowrap">Llegada: 
-                                <input size="3" id="arrival" maxlength="8" placeholder="hh:mm:ss" type="text">
+                                <input tabindex="12" size="3" id="arrival" maxlength="8" placeholder="hh:mm:ss" type="text">
                             </td>
                         </tr>
                         <tr>
                             <td id="opt2" class="nowrap" style="display: none;">Lanzamiento: 
-                                <input size="5" id="launch" maxlength="12" placeholder="hh:mm:ss:nnn" type="text">
+                                <input tabindex="12" size="5" id="launch" maxlength="12" placeholder="hh:mm:ss:nnn" type="text">
                             </td>
                         </tr>
                         <tr>
                             <td id="opt3" class="nowrap">Día:  
-                                <input size="3" id="day" maxlength="10" placeholder="dd/mm/aaaa" type="text">
+                                <input tabindex="13" size="3" id="day" maxlength="10" placeholder="dd/mm/aaaa" type="text">
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input id="calc" class="btn btn-target-action" value="Calcular" type="submit" onclick="calcular()">
-                                <input id="prog" class="btn btn-target-action" value="Programar" type="submit" style="display: none;" onclick="programar()">
+                                <input tabindex="14" id="calc" class="btn btn-target-action" value="Calcular" type="submit" onclick="calcular()">
+                                <input tabindex="14" id="prog" class="btn btn-target-action" value="Programar" type="submit" style="display: none;" onclick="programar()">
                             </td>
                         </tr>
                     </tbody>
@@ -154,7 +154,7 @@
                         <tr>
                             <td>
                                 <div id="place_target" class="target-input float_left" style="background-color: #fff; border: 1px solid #91775e; overflow: hidden; width: 310px; box-sizing: border-box; margin-bottom: 5px;">
-                                    <input id="input_target" maxlength="7" value="" autocomplete="off" tabindex="14" placeholder="123|456" type="text" style="height: 20px; width: 310px; resize: none; padding: 2px; border: none; box-sizing: border-box; outline: none; display: inline;">
+                                    <input id="input_target" maxlength="7" value="" autocomplete="off" tabindex="15" placeholder="123|456" type="text" style="height: 20px; width: 310px; resize: none; padding: 2px; border: none; box-sizing: border-box; outline: none; display: inline;">
                                 </div>
                                 <a class="target-quickbutton target-last-attacked" style="float: left; height: 22px; width: 22px; display: inline; border: 1px solid #91775e; border-left: none; box-sizing: border-box; background: #fff5da url(\'https://dses.innogamescdn.com/8.106/35442/graphic/target_icons.png\'); background-position: 0 0;"></a>
                             </td>
@@ -168,9 +168,9 @@
                     <tbody>
                         <tr>
                             <td>
-                                <input id="target_attack" tabindex="15" class="attack btn btn-attack btn-target-action" value="Ataque" type="submit" onclick="sendCommand(1)">
-                                <input id="target_support" tabindex="16" class="support btn btn-support btn-target-action" value="Apoyo" type="submit" onclick="sendCommand(0)">
-                                <input id="target_snipe" tabindex="17" class="btr btn btn-btr btn-target-action" value="Snipeo" type="submit" style="padding: 3px 9px 3px 25px">
+                                <input id="target_attack" tabindex="16" class="attack btn btn-attack btn-target-action" value="Ataque" type="submit" onclick="sendCommand(1)">
+                                <input id="target_support" tabindex="17" class="support btn btn-support btn-target-action" value="Apoyo" type="submit" onclick="sendCommand(0)">
+                                <input id="target_snipe" tabindex="18" class="btr btn btn-btr btn-target-action" value="Snipeo" type="submit" style="display: none;padding: 3px 9px 3px 25px">
                             </td>
                         </tr>
                     </tbody>
@@ -178,5 +178,5 @@
             </div>
         </div>
     </div>
-    <div class="fader" onclick="this.parentNode.parentNode.remove();"></div>
+    <div class="fader" onclick="this.parentNode.remove();"></div>
 </div>'

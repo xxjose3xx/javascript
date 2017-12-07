@@ -17,7 +17,7 @@ function showTable() {
         };
 
         //Crear la ventana de PlazaDeReunionesV2
-        var div = $('<div class="popup_box_container"><div class="popup_box show" id="popup_box_popup_command" style="width: 700px;"><div class="popup_box_content"><a class="popup_box_close tooltip-delayed" onclick="this.parentNode.parentNode.parentNode.remove();" href="#">&nbsp;</a><h3>Dar órdenes</h3><div id="command-form-warning"></div><table class="float_left"><tbody><tr><td valign="top"><table class="vis" width="100%"><tbody><tr><th>Infantería</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_spear.png"><input id="unit_input_spear" tabindex="1" value="" data-all-count="' + units["spear"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_spear" data-unit="spear">(' + units["spear"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_sword.png"><input id="unit_input_sword" tabindex="2" value="" data-all-count="' + units["sword"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_sword" data-unit="sword">(' + units["sword"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_axe.png"><input id="unit_input_axe" tabindex="3" value="" data-all-count="' + units["axe"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_axe" data-unit="axe">(' + units["axe"] + ')</a></td></tr></tbody></table></td><td valign="top"><table class="vis" width="100%"><tbody><tr><th>La caballería al poder</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_spy.png"><input id="unit_input_spy" tabindex="4" value="" data-all-count="' + units["spy"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_spy" data-unit="spy">(' + units["spy"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_light.png"><input id="unit_input_light" tabindex="5" value="" data-all-count="' + units["light"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_light" data-unit="light">(' + units["light"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_heavy.png"><input id="unit_input_heavy" tabindex="6" value="" data-all-count="' + units["heavy"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_heavy" data-unit="heavy">(' + units["heavy"] + ')</a></td></tr></tbody></table></td><td valign="top"><table class="vis" width="100%"><tbody><tr><th>Armas de asedio</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_ram.png"><input id="unit_input_ram" tabindex="7" value="" data-all-count="' + units["ram"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_ram" data-unit="ram">(' + units["ram"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_catapult.png"><input id="unit_input_catapult" tabindex="8" value="" data-all-count="' + units["catapult"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_catapult" data-unit="catapult">(' + units["catapult"] + ')</a></td></tr></tbody></table></td><td valign="top"><table class="vis" width="100%"><tbody><tr><th>Otros</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_knight.png"><input id="unit_input_knight" tabindex="9" value="" data-all-count="' + units["knight"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_knight" data-unit="knight">(' + units["knight"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_snob.png"><input id="unit_input_snob" tabindex="10" value="" data-all-count="' + units["snob"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_snob" data-unit="snob">(' + units["snob"] + ')</a></td></tr></tbody></table></td></tr></tbody></table><div class="vis float_left" style="margin: 4px 0 0 10px; min-width: 125px;"><h4><span id="op1" style="font-weight: bold">Calcular</span><input id="switch" min="0" max="1" style="width:30px;" type="range" value="0"><span id="op2" style="font-weight: normal">Programar</span></h4><table class="vis" style="width: 100%"><tbody><tr><td id="opt1" class="nowrap">Llegada: <input size="3" id="arrival" maxlength="8" placeholder="hh:mm:ss" type="text"></td></tr><tr><td id="opt2" class="nowrap" style="display: none;">Lanzamiento: <input size="5" id="launch" maxlength="12" placeholder="hh:mm:ss:nnn" type="text"></td></tr><tr><td id="opt3" class="nowrap">Día:  <input size="3" id="day" maxlength="10" placeholder="dd/mm/aaaa" type="text"></td></tr><tr><td><input id="calc" class="btn btn-target-action" value="Calcular" type="submit" onclick="calcular()"><input id="prog" class="btn btn-target-action" value="Programar" type="submit" style="display: none;" onclick="programar()"></td></tr></tbody></table></div><div id="target_selection" class="target-select clearfix vis float_left"><h4>Objetivos:</h4><table class="vis" style="width: 100%"><span id="coordX" value=""></span><span id="coordY" value=""></span><tbody><tr><td><div id="place_target" class="target-input float_left" style="background-color: #fff; border: 1px solid #91775e; overflow: hidden; width: 310px; box-sizing: border-box; margin-bottom: 5px;"><input id="input_target" maxlength="7" value="" autocomplete="off" tabindex="14" placeholder="123|456" type="text" style="height: 20px; width: 310px; resize: none; padding: 2px; border: none; box-sizing: border-box; outline: none; display: inline;"></div><a class="target-quickbutton target-last-attacked" style="float: left; height: 22px; width: 22px; display: inline; border: 1px solid #91775e; border-left: none; box-sizing: border-box; background: #fff5da url(\'https://dses.innogamescdn.com/8.106/35442/graphic/target_icons.png\'); background-position: 0 0;"></a></td></tr></tbody></table></div><div id="command_actions" class="target-select clearfix vis float_left"><h4>Orden:</h4><table class="vis" style="width: 100%"><tbody><tr><td><input id="target_attack" tabindex="15" class="attack btn btn-attack btn-target-action" value="Ataque" type="submit" onclick="sendCommand(1)"><input id="target_support" tabindex="16" class="support btn btn-support btn-target-action" value="Apoyo" type="submit" onclick="sendCommand(0)"><input id="target_snipe" tabindex="17" class="btr btn btn-btr btn-target-action" value="Snipeo" type="submit" style="padding: 3px 9px 3px 25px"></td></tr></tbody></table></div></div></div><div class="fader" onclick="this.parentNode.parentNode.remove();"></div></div>');
+        var div = $('<div class="popup_box_container"><div class="popup_box show" id="popup_box_popup_command" style="width: 700px;"><div class="popup_box_content"><a class="popup_box_close tooltip-delayed" onclick="this.parentNode.parentNode.parentNode.remove();" href="#">&nbsp;</a><h3>Dar órdenes</h3><div id="command-form-warning"></div><table class="float_left"><tbody><tr><td valign="top"><table class="vis" width="100%"><tbody><tr><th>Infantería</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_spear.png"><input id="unit_input_spear" tabindex="1" value="" data-all-count="' + units["spear"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_spear" data-unit="spear">(' + units["spear"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_sword.png"><input id="unit_input_sword" tabindex="2" value="" data-all-count="' + units["sword"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_sword" data-unit="sword">(' + units["sword"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_axe.png"><input id="unit_input_axe" tabindex="3" value="" data-all-count="' + units["axe"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_axe" data-unit="axe">(' + units["axe"] + ')</a></td></tr></tbody></table></td><td valign="top"><table class="vis" width="100%"><tbody><tr><th>La caballería al poder</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_spy.png"><input id="unit_input_spy" tabindex="4" value="" data-all-count="' + units["spy"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_spy" data-unit="spy">(' + units["spy"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_light.png"><input id="unit_input_light" tabindex="5" value="" data-all-count="' + units["light"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_light" data-unit="light">(' + units["light"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_heavy.png"><input id="unit_input_heavy" tabindex="6" value="" data-all-count="' + units["heavy"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_heavy" data-unit="heavy">(' + units["heavy"] + ')</a></td></tr></tbody></table></td><td valign="top"><table class="vis" width="100%"><tbody><tr><th>Armas de asedio</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_ram.png"><input id="unit_input_ram" tabindex="7" value="" data-all-count="' + units["ram"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_ram" data-unit="ram">(' + units["ram"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_catapult.png"><input id="unit_input_catapult" tabindex="8" value="" data-all-count="' + units["catapult"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_catapult" data-unit="catapult">(' + units["catapult"] + ')</a></td></tr></tbody></table></td><td valign="top"><table class="vis" width="100%"><tbody><tr><th>Otros</th></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_knight.png"><input id="unit_input_knight" tabindex="9" value="" data-all-count="' + units["knight"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_knight" data-unit="knight">(' + units["knight"] + ')</a></td></tr><tr><td class="nowrap"><img src="https://dses.innogamescdn.com/8.106/35442/graphic/unit/unit_snob.png"><input id="unit_input_snob" tabindex="10" value="" data-all-count="' + units["snob"] + '" class="unitsInput" type="text"><a class="units-entry-all" id="units_entry_all_snob" data-unit="snob">(' + units["snob"] + ')</a></td></tr></tbody></table></td></tr></tbody></table><div class="vis float_left" style="margin: 4px 0 0 10px; min-width: 125px;"><h4><span id="op1" style="font-weight: bold">Calcular</span><input id="switch" min="0" max="1" style="width:30px;" type="range" value="0" tabindex="11"><span id="op2" style="font-weight: normal">Programar</span></h4><table class="vis" style="width: 100%"><tbody><tr><td id="opt1" class="nowrap">Llegada: <input tabindex="12" size="3" id="arrival" maxlength="8" placeholder="hh:mm:ss" type="text"></td></tr><tr><td id="opt2" class="nowrap" style="display: none;">Lanzamiento: <input tabindex="12" size="5" id="launch" maxlength="12" placeholder="hh:mm:ss:nnn" type="text"></td></tr><tr><td id="opt3" class="nowrap">Día:  <input tabindex="13" size="3" id="day" maxlength="10" placeholder="dd/mm/aaaa" type="text"></td></tr><tr><td><input tabindex="14" id="calc" class="btn btn-target-action" value="Calcular" type="submit" onclick="calcular()"><input tabindex="14" id="prog" class="btn btn-target-action" value="Programar" type="submit" style="display: none;" onclick="programar()"></td></tr></tbody></table></div><div id="target_selection" class="target-select clearfix vis float_left"><h4>Objetivos:</h4><table class="vis" style="width: 100%"><span id="coordX" value=""></span><span id="coordY" value=""></span><tbody><tr><td><div id="place_target" class="target-input float_left" style="background-color: #fff; border: 1px solid #91775e; overflow: hidden; width: 310px; box-sizing: border-box; margin-bottom: 5px;"><input id="input_target" maxlength="7" value="" autocomplete="off" tabindex="15" placeholder="123|456" type="text" style="height: 20px; width: 310px; resize: none; padding: 2px; border: none; box-sizing: border-box; outline: none; display: inline;"></div><a class="target-quickbutton target-last-attacked" style="float: left; height: 22px; width: 22px; display: inline; border: 1px solid #91775e; border-left: none; box-sizing: border-box; background: #fff5da url(\'https://dses.innogamescdn.com/8.106/35442/graphic/target_icons.png\'); background-position: 0 0;"></a></td></tr></tbody></table></div><div id="command_actions" class="target-select clearfix vis float_left"><h4>Orden:</h4><table class="vis" style="width: 100%"><tbody><tr><td><input id="target_attack" tabindex="16" class="attack btn btn-attack btn-target-action" value="Ataque" type="submit" onclick="sendCommand(1)"><input id="target_support" tabindex="17" class="support btn btn-support btn-target-action" value="Apoyo" type="submit" onclick="sendCommand(0)"><input id="target_snipe" tabindex="18" class="btr btn btn-btr btn-target-action" value="Snipeo" type="submit" style="display: none;padding: 3px 9px 3px 25px"></td></tr></tbody></table></div></div></div><div class="fader" onclick="this.parentNode.remove();"></div></div>');
         $("body").append(div);
 
         //Añadir eventos para rellenar con las máximas unidades del tipo de tropa.
@@ -91,6 +91,13 @@ function showTable() {
             this.value = a;
         });
 
+        //Añadir cancelación para el snipeo.
+        $("#target_snipe")[0].addEventListener("click", function() {
+            $("#target_snipe")[0].style.display="none";
+            $("#target_attack")[0].setAttribute("onclick", "sendCommand(1)");
+            $("#target_support")[0].setAttribute("onclick", "sendCommand(0)");
+        });
+
         //Sustituir las coordenadas en texto por los datos gráficos del pueblo objetivo.
         $("#input_target")[0].addEventListener("blur", function() {
             if(this.value.length == 7) {
@@ -131,29 +138,57 @@ function showTable() {
 
 function calcular() {
 
-    var tiempoDeViaje;
-    var ritmo;
-    var fecha;
+    var tiempoDeViaje, ritmo, lanzamiento, a, b, c;
     var objetivo = $("#input_target")[0].value;
 
-    if($("#unit_input_snob")[0].value != "") ritmo = 2100;
-    else if($("#unit_input_ram")[0].value != "" || $("#unit_input_catapult")[0].value != "") ritmo = 1800;
-    else if($("#unit_input_sword")[0].value != "") ritmo = 1320;
-    else if($("#unit_input_spear")[0].value != "" || $("#unit_input_axe")[0].value != "") rimto = 1080;
-    else if($("#unit_input_heavy")[0].value != "") ritmo = 660;
-    else if($("#unit_input_light")[0].value != "" || $("#unit_input_knight")[0].value != "") ritmo = 600;
-    else if($("#unit_input_spy")[0].value != "") ritmo = 540;
-    else return void UI.ErrorMessage("No se ha seleccionano ninguna unidad");
+    ritmo = getRithm();
 
+    if(ritmo == -1) return -1;
     if(objetivo == "") return void UI.ErrorMessage("No se ha seleccionado un pueblo objetivo");
 
     tiempoDeViaje = Math.round(Math.sqrt(Math.pow(game_data.village.coord.substr(0,3) - objetivo.substr(0,3), 2) + Math.pow(game_data.village.coord.substr(4,6) - objetivo.substr(4,6), 2)) * ritmo);
-    fecha = buildTime($("#arrival")[0].value, $("#day")[0].value, false);
+    lanzamiento = buildTime($("#arrival")[0].value, $("#day")[0].value, false, tiempoDeViaje);
 
-    console.log(fecha);
+    if(lanzamiento == -1) return -1;
+
+    a = parseInt(tiempoDeViaje/3600);
+    b = parseInt(tiempoDeViaje/60);
+    c = tiempoDeViaje%60;
+
+    alert("Duración: " + ((a<10)?"0"+a:a) + ":" + ((b<10)?"0"+b:b) + ":" + ((c<10)?"0"+c:c) + "\nLanzamiento: " + (lanzamiento.getDate()<10?"0"+lanzamiento.getDate():lanzamiento.getDate()) + "/" + (lanzamiento.getMonth()<9?"0"+(lanzamiento.getMonth()+1):(lanzamiento.getMonth()+1)) + "/" + (lanzamiento.getFullYear()<10?"0"+lanzamiento.getFullYear():lanzamiento.getFullYear()) + " - " + (lanzamiento.getUTCHours()<10?"0"+lanzamiento.getUTCHours():lanzamiento.getUTCHours()) + ":" + (lanzamiento.getUTCMinutes()<10?"0"+lanzamiento.getUTCMinutes():lanzamiento.getUTCMinutes()) + ":" + (lanzamiento.getUTCSeconds()<10?"0"+lanzamiento.getUTCSeconds():lanzamiento.getUTCSeconds()));
 };
 
-function buildTime(hour, day, milliseconds) {
+function programar() {
+
+    var lanzamiento;
+    var objetivo = $("#input_target")[0].value;
+
+    if(objetivo == "") return void UI.ErrorMessage("No se ha seleccionado un pueblo objetivo");
+
+    lanzamiento = buildTime($("#launch")[0].value, $("#day")[0].value, true, 0);
+
+    if(lanzamiento == -1) return -1;
+
+    lanzamiento.setUTCMinutes(lanzamiento.getUTCMinutes() + new Date().getTimezoneOffset())
+    launch = lanzamiento;
+    $("#target_attack")[0].setAttribute("onclick", "sendCommand(3)");
+    $("#target_support")[0].setAttribute("onclick", "sendCommand(2)");
+    $("#target_snipe")[0].style.display="";
+};
+
+function getRithm() {
+
+    if($("#unit_input_snob")[0].value != "") return 2100;
+    else if($("#unit_input_ram")[0].value != "" || $("#unit_input_catapult")[0].value != "") return 1800;
+    else if($("#unit_input_sword")[0].value != "") return 1320;
+    else if($("#unit_input_spear")[0].value != "" || $("#unit_input_axe")[0].value != "") return 1080;
+    else if($("#unit_input_heavy")[0].value != "") return 660;
+    else if($("#unit_input_light")[0].value != "" || $("#unit_input_knight")[0].value != "") return 600;
+    else if($("#unit_input_spy")[0].value != "") return 540;
+    else return UI.ErrorMessage("No se ha seleccionano ninguna unidad"), -1;
+};
+
+function buildTime(hour, day, milliseconds, travelTime) {
 
     if(milliseconds && hour.length != 12) return UI.ErrorMessage("Hora de llegada incompleta"), -1;
     if(!milliseconds && hour.length != 8) return UI.ErrorMessage("Hora de llegada incompleta"), -1;
@@ -166,11 +201,14 @@ function buildTime(hour, day, milliseconds) {
     if(day[0]>31||day[1]>12||day[2]<new Date().getFullYear()) return UI.ErrorMessage("Día de llegada incorrecto"), -1;
 
     day = new Date(Date.UTC(day[2],day[1]-1,day[0],hour[0],hour[1],hour[2],(milliseconds)?hour[3]:0));
+    day.setSeconds(day.getSeconds()-travelTime);
 
     if(day == "Invalid Date") return UI.ErrorMessage("Día y/o hora de lanzamiento incorrectos"), -1;
 
     return day;
 };
+
+var launch;
 
 function sendCommand(command) {
     var data = {
@@ -203,6 +241,18 @@ function sendCommand(command) {
     } else if(command == 1) {
         $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
             $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {attack:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob,building:"main"}, function() {alert("enviado")});
+        });
+    //Enviar apoyo programado
+    } else if(command == 2) {
+        $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
+            $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {support:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob}, function() {alert("enviado")});
+        });
+    //Enviar ataque programado
+    } else if(command == 3) {
+        var espera = (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime());
+        console.log(espera);
+        $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
+            setTimeout(function(){ $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {attack:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob,building:"main"}, function() {console.log("enviado")}); }, espera);
         });
     }
 };

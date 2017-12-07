@@ -141,7 +141,14 @@ function calcular() {
     var tiempoDeViaje, ritmo, lanzamiento, a, b, c;
     var objetivo = $("#input_target")[0].value;
 
-    ritmo = getRithm();
+    if($("#unit_input_snob")[0].value != "") return 2100;
+    else if($("#unit_input_ram")[0].value != "" || $("#unit_input_catapult")[0].value != "") return 1800;
+    else if($("#unit_input_sword")[0].value != "") return 1320;
+    else if($("#unit_input_spear")[0].value != "" || $("#unit_input_axe")[0].value != "") return 1080;
+    else if($("#unit_input_heavy")[0].value != "") return 660;
+    else if($("#unit_input_light")[0].value != "" || $("#unit_input_knight")[0].value != "") return 600;
+    else if($("#unit_input_spy")[0].value != "") return 540;
+    else return UI.ErrorMessage("No se ha seleccionano ninguna unidad"), -1;
 
     if(ritmo == -1) return -1;
     if(objetivo == "") return void UI.ErrorMessage("No se ha seleccionado un pueblo objetivo");
@@ -174,18 +181,6 @@ function programar() {
     $("#target_attack")[0].setAttribute("onclick", "sendCommand(3)");
     $("#target_support")[0].setAttribute("onclick", "sendCommand(2)");
     $("#target_snipe")[0].style.display="";
-};
-
-function getRithm() {
-
-    if($("#unit_input_snob")[0].value != "") return 2100;
-    else if($("#unit_input_ram")[0].value != "" || $("#unit_input_catapult")[0].value != "") return 1800;
-    else if($("#unit_input_sword")[0].value != "") return 1320;
-    else if($("#unit_input_spear")[0].value != "" || $("#unit_input_axe")[0].value != "") return 1080;
-    else if($("#unit_input_heavy")[0].value != "") return 660;
-    else if($("#unit_input_light")[0].value != "" || $("#unit_input_knight")[0].value != "") return 600;
-    else if($("#unit_input_spy")[0].value != "") return 540;
-    else return UI.ErrorMessage("No se ha seleccionano ninguna unidad"), -1;
 };
 
 function buildTime(hour, day, milliseconds, travelTime) {

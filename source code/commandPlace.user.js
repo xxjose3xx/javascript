@@ -159,7 +159,7 @@ function calcular() {
     if(lanzamiento == -1) return -1;
 
     a = parseInt(tiempoDeViaje/3600);
-    b = parseInt(tiempoDeViaje/60);
+    b = parseInt((tiempoDeViaje%3600)/60);
     c = tiempoDeViaje%60;
 
     alert("Duración: " + ((a<10)?"0"+a:a) + ":" + ((b<10)?"0"+b:b) + ":" + ((c<10)?"0"+c:c) + "\nLanzamiento: " + (lanzamiento.getDate()<10?"0"+lanzamiento.getDate():lanzamiento.getDate()) + "/" + (lanzamiento.getMonth()<9?"0"+(lanzamiento.getMonth()+1):(lanzamiento.getMonth()+1)) + "/" + (lanzamiento.getFullYear()<10?"0"+lanzamiento.getFullYear():lanzamiento.getFullYear()) + " - " + (lanzamiento.getUTCHours()<10?"0"+lanzamiento.getUTCHours():lanzamiento.getUTCHours()) + ":" + (lanzamiento.getUTCMinutes()<10?"0"+lanzamiento.getUTCMinutes():lanzamiento.getUTCMinutes()) + ":" + (lanzamiento.getUTCSeconds()<10?"0"+lanzamiento.getUTCSeconds():lanzamiento.getUTCSeconds()));
@@ -240,14 +240,12 @@ function sendCommand(command) {
     //Enviar apoyo programado
     } else if(command == 2) {
         $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
-            $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {support:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob}, function() {alert("enviado")});
+            setTimeout(function(){ $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {support:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob}, function() {alert("enviado")}); }, (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime()));
         });
     //Enviar ataque programado
     } else if(command == 3) {
-        var espera = (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime());
-        console.log(espera);
         $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
-            setTimeout(function(){ $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {attack:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob,building:"main"}, function() {console.log("enviado")}); }, espera);
+            setTimeout(function(){ $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {attack:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob,building:"main"}, function() {console.log("enviado")}); }, (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime()));
         });
     }
 };

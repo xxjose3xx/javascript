@@ -254,11 +254,13 @@ function sendCommand(command) {
     //Enviar apoyo programado
     } else if(command == 2) {
         $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
+            UI.SuccessMessage("Apoyo preparado. Se enviará automáticamente.\nNO ACTUALICES LA PÁGINA!!");
             setTimeout(function(){ $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {support:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob}, function() {UI.SuccessMessage("Apoyo programado enviado");}); }, (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime()));
         });
     //Enviar ataque programado
     } else if(command == 3) {
         $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
+            UI.SuccessMessage("Ataque preparado. Se enviará automáticamente.\nNO ACTUALICES LA PÁGINA!!")
             setTimeout(function(){ $.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {attack:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob,building:"main"}, function() {UI.SuccessMessage("Ataque programado enviado");});}, (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime()));
         });
     }

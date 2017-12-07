@@ -153,13 +153,13 @@ function calcular() {
     var tiempoDeViaje, ritmo, lanzamiento, a, b, c;
     var objetivo = $("#input_target")[0].value;
 
-    if($("#unit_input_snob")[0].value != "") return 2100;
-    else if($("#unit_input_ram")[0].value != "" || $("#unit_input_catapult")[0].value != "") return 1800;
-    else if($("#unit_input_sword")[0].value != "") return 1320;
-    else if($("#unit_input_spear")[0].value != "" || $("#unit_input_axe")[0].value != "") return 1080;
-    else if($("#unit_input_heavy")[0].value != "") return 660;
-    else if($("#unit_input_light")[0].value != "" || $("#unit_input_knight")[0].value != "") return 600;
-    else if($("#unit_input_spy")[0].value != "") return 540;
+    if($("#unit_input_snob")[0].value != "") ritmo = 2100;
+    else if($("#unit_input_ram")[0].value != "" || $("#unit_input_catapult")[0].value != "") ritmo = 1800;
+    else if($("#unit_input_sword")[0].value != "") ritmo = 1320;
+    else if($("#unit_input_spear")[0].value != "" || $("#unit_input_axe")[0].value != "") ritmo = 1080;
+    else if($("#unit_input_heavy")[0].value != "") ritmo = 660;
+    else if($("#unit_input_light")[0].value != "" || $("#unit_input_knight")[0].value != "") ritmo = 600;
+    else if($("#unit_input_spy")[0].value != "") ritmo = 540;
     else return UI.ErrorMessage("No se ha seleccionano ninguna unidad"), -1;
 
     if(ritmo == -1) return -1;

@@ -252,5 +252,4 @@ function sendCommand(command) {
         });
     }
 };
-
-showTable();
+//showTable();

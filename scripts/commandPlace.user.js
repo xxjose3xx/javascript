@@ -2,7 +2,7 @@
 // @name        commandPlace
 // @namespace   guerrastribales
 // @description Permite enviar apoyos y ataques desde cualquier página. Puede calcularse el tiempo para un snipeo y programarse para ser enviado automáticamente.
-// @include     https://*.guerrastribales.es/game.php?village*
+// @include     *
 // @icon        https://dses.innogamescdn.com/8.105/35420/graphic/icons/farm_assistent.png
 // @version     1.1
 // @grant       none

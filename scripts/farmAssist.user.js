@@ -8,7 +8,7 @@
 // ==/UserScript==
 
 var primerUso = true;
-var scriptRaw = "https://raw.githubusercontent.com/xxjose3xx/javascript/master/scripts/commandPlace.user.js";
+var scriptRaw = "https://raw.githubusercontent.com/xxjose3xx/javascript/master/source%20code/farmAssist.js";
 
 $(document).keydown(function(e){
   	//Tecla 'p'

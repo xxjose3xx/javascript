@@ -1,17 +1,4 @@
-// ==UserScript==
-// @name        commandPlace
-// @namespace   guerrastribales
-// @description Permite enviar apoyos y ataques desde cualquier página. Puede calcularse el tiempo para un snipeo y programarse para ser enviado automáticamente.
-// @include     *
-// @icon        https://dses.innogamescdn.com/8.105/35420/graphic/icons/farm_assistent.png
-// @version     1.1
-// @grant       none
-// ==/UserScript==
-
-//javascript:
-
 function showTable() {
-
     $.get("/game.php?village=" + game_data.village.id + "&screen=place", function(html) {
 
         //Extraer las tropas del pueblo utilizando la página de la plaza de reuniones

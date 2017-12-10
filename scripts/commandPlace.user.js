@@ -5,7 +5,7 @@
 // @include     *.guerrastribales.es/game.php?village=*
 // @icon        https://dses.innogamescdn.com/8.105/35420/graphic/icons/farm_assistent.png
 // @require     http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js
-// @version     1.1
+// @version     1.2
 // ==/UserScript==
 
 var primerUso = true;

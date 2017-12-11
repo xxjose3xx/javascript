@@ -248,12 +248,7 @@ function sendCommand(command) {
     } else if(command == 3) {
         $.post("/game.php?village=" + game_data.village.id + "&screen=place&try=confirm", data, function(html) {
             UI.SuccessMessage("Ataque preparado. Se enviará automáticamente. NO ACTUALICES LA PÁGINA!!")
-            setTimeout(function(){$.ajax({
-	url: "/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf,
-	data: {attack:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob,building:"main"},
-	headers: {Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Content-Type": "application/x-www-form-urlencoded", "Upgrade-Insecure-Requests": "1"},  
-	success: function() {UI.SuccessMessage("Ataque programado enviado");}
-});}, (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime()));
+            setTimeout(function(){$.post("/game.php?village=" + game_data.village.id + "&screen=place&action=command&h=" + game_data.csrf, {attack:true,ch:$(html).find('input[name=ch]')[0].value,x:data.x,y:data.y,source_village:data.source_village,spear:data.spear,sword:data.sword,axe:data.axe,spy:data.spy,light:data.light,heavy:data.heavy,ram:data.ram,catapult:data.catapult,knight:data.knight,snob:data.snob,building:"main"}, function() {UI.SuccessMessage("Ataque programado enviado");}); }, (launch - new Date().getTime()) - (Timing.getCurrentServerTime() - new Date().getTime()));
         });
     }
 };

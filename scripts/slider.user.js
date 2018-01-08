@@ -7,6 +7,8 @@
 // ==/UserScript==
 
 var lista = document.getElementsByClassName("wrapper")[0].getElementsByClassName("pic");
+var bucle;
+var bucleIniciado = false;
 var expositor = document.createElement('img');
 var estilos = 'display: block; text-align: center; position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; image-orientation: from-image;';
 var i = -1;
@@ -40,10 +42,21 @@ function flechaDer() {
   }
 }
 
+function play() {
+
+  bucleIniciado = true;
+  flechaDer();
+	bucle = setInterval(function() { if(i+1<total) flechaDer(); else clearInterval(bucle), bucleIniciado = false;}, 5000);
+}
 
 window.onkeyup = function (e) {
   
   var tecla = e.keyCode ? e.keyCode : e.which;
+  
+  if(bucleIniciado) {
+    bucleIniciado = false;
+    clearInterval(bucle);
+  }
   
   switch(tecla) {
       
@@ -52,6 +65,9 @@ window.onkeyup = function (e) {
       
       case 39: flechaDer();
           break;
+      
+      case 80: play();
+      		break;
            
     default: expositor.setAttribute('src', '');
   }

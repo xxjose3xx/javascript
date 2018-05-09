@@ -1,3 +1,1 @@
-function test() {
-  alert("cargado");
-}
+alert("hola mundo ;D");

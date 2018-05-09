@@ -1,1 +1,3 @@
-alert("cargado");
+function test() {
+  alert("cargado");
+}

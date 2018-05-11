@@ -85,15 +85,13 @@ function spawnContainer() {
 		}
 
 		if(document.readyState != "loading") {
-			alert("uno");
 			window.stop();
 			var container = spawnContainer();
 			var images = container.getElementsByClassName("mySlides");
-			container.addEventListener('sliderReady', (playSlider)(images));
+			container.addEventListener('sliderReady', function() {playSlider(images, 0)});
 			preloadImages(container);
 		} else {
 			document.addEventListener("DOMContentLoaded", function(event) {
-				alert("dos");
 				window.stop();
 				var container = spawnContainer();
 				var images = container.getElementsByClassName("mySlides");

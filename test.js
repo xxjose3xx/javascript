@@ -1,3 +1,4 @@
+alert("hola");
 function spawnContainer() {
 			var styles = document.createElement("style");
 			styles.innerHTML = "*{box-sizing:border-box}.slideshow-container{display:block;margin:auto;position:absolute}.mySlides{display:none}.prev,.next{cursor:pointer;position:absolute;top:50%;width:auto;margin-top:-22px;padding:16px;color:#fff;font-weight:700;font-size:18px;transition:.6s ease;border-radius:0 3px 3px 0}.next{right:0;border-radius:3px 0 0 3px}.prev:hover,.next:hover{background-color:rgba(0,0,0,0.8)}.text{color:red;font-size:15px;padding:8px 12px;position:absolute;bottom:8px;text-align:center}.numbertext{color:#f2f2f2;font-size:12px;padding:8px 12px;position:absolute;top:0}.fade{-webkit-animation-name:fade;-webkit-animation-duration:1.5s;animation-name:fade;animation-duration:1.5s}img{max-height:100vh;max-width:100vw}@-webkit-keyframes fade{from{opacity:.4}to{opacity:1}}@keyframes fade{from{opacity:.4}to{opacity:1}}";

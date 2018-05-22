@@ -67,7 +67,6 @@ function playSlider(images, slideIndex) {
 function showImage(images, imageIndex) {
 	if(images[0].getElementsByTagName("img")[0].height > images[0].getElementsByTagName("img")[0].width) {
 		images[imageIndex].getElementsByTagName("img")[0].classList.add("rotate-90");
-		alert("rotated and fixed!");
 	}
 	if(imageIndex > 0) {
 		images[imageIndex-1].style.display = "none";

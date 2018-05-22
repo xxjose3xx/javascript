@@ -65,7 +65,7 @@ function playSlider(images, slideIndex) {
 }
 
 function showImage(images, imageIndex) {
-	if(images[0].getElementsByTagName("img")[0].height > images[0].getElementsByTagName("img")[0].width) {
+	if(images[imageIndex].getElementsByTagName("img")[0].height > images[imageIndex].getElementsByTagName("img")[0].width) {
 		images[imageIndex].getElementsByTagName("img")[0].classList.add("rotate-90");
 	}
 	if(imageIndex > 0) {

@@ -53,7 +53,7 @@ function playSlider(images, slideIndex) {
 
 	showImage(images, slideIndex++);
 
-	/*var loop = setInterval(function() {
+	var loop = setInterval(function() {
 		if(slideIndex < images.length) {
 			showImage(images, slideIndex++);
 		} else {
@@ -61,7 +61,7 @@ function playSlider(images, slideIndex) {
 			images[slideIndex-1].style.display = "none";
 			playSlider(images, 0);
 		}
-	}, 5000);*/
+	}, 5000);
 }
 
 function showImage(images, imageIndex) {

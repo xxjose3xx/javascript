@@ -1,6 +1,6 @@
 function spawnContainer() {
 	var styles = document.createElement("style");
-	styles.innerHTML = "*{box-sizing:border-box}.slideshow-container{display: block; text-align: center; top: 0px; left: 50%;position: fixed; margin: auto; top: 0; right: 0; bottom: 0; left: 0; image-orientation: from-image;}.rotate-90{image-orientation:-90deg}.mySlides{display:none}.prev,.next{cursor:pointer;position:absolute;top:50%;width:auto;margin-top:-22px;padding:16px;color:#fff;font-weight:700;font-size:18px;transition:.6s ease;border-radius:0 3px 3px 0}.next{right:0;border-radius:3px 0 0 3px}.prev:hover,.next:hover{background-color:rgba(0,0,0,0.8)}.text{color:red;font-size:15px;padding:8px 12px;position:absolute;bottom:8px;text-align:center}.numbertext{color:#f2f2f2;font-size:12px;padding:8px 12px;position:absolute;top:0}img{max-height:100vh;max-width:100vw}";
+	styles.innerHTML = "*{box-sizing:border-box}.slideshow-container{display: block; text-align: center; top: 0px; left: 50%;position: fixed; margin: auto; top: 0; right: 0; bottom: 0; left: 0; image-orientation: from-image;}.rotate-90{max-width:100vh; max-height:100vw;}.mySlides{display:none}.prev,.next{cursor:pointer;position:absolute;top:50%;width:auto;margin-top:-22px;padding:16px;color:#fff;font-weight:700;font-size:18px;transition:.6s ease;border-radius:0 3px 3px 0}.next{right:0;border-radius:3px 0 0 3px}.prev:hover,.next:hover{background-color:rgba(0,0,0,0.8)}.text{color:red;font-size:15px;padding:8px 12px;position:absolute;bottom:8px;text-align:center}.numbertext{color:#f2f2f2;font-size:12px;padding:8px 12px;position:absolute;top:0}img{max-height:100vh;max-width:100vw}";
 	document.head.appendChild(styles);
 	var rtn = document.createElement("div");
 	rtn.classList.add("slideshow-container");
@@ -53,7 +53,7 @@ function playSlider(images, slideIndex) {
 
 	showImage(images, slideIndex++);
 
-	var loop = setInterval(function() {
+	/*var loop = setInterval(function() {
 		if(slideIndex < images.length) {
 			showImage(images, slideIndex++);
 		} else {
@@ -61,12 +61,28 @@ function playSlider(images, slideIndex) {
 			images[slideIndex-1].style.display = "none";
 			playSlider(images, 0);
 		}
-	}, 5000);
+	}, 5000);*/
 }
 
 function showImage(images, imageIndex) {
 	if(images[imageIndex].getElementsByTagName("img")[0].height > images[imageIndex].getElementsByTagName("img")[0].width) {
+		var altura = images[imageIndex].getElementsByTagName("img")[0].height;
+		var anchura = images[imageIndex].getElementsByTagName("img")[0].width;
+
+		if(altura > window.innerWidth) {
+			var proporcion = window.innerWidth / altura;
+			altura *= proporcion;
+			anchura *= proporcion;
+		}
+
+		if(anchura > window.innerHeight) {
+			var proporcion = window.innerHeight / anchura;
+			altura *= proporcion;
+			anchura *= proporcion;
+		}
+
 		images[imageIndex].getElementsByTagName("img")[0].classList.add("rotate-90");
+		images[imageIndex].getElementsByTagName("img")[0].style.transform="rotate(-90deg) translate(" + (altura-anchura)/2 + "px, 0)";
 	}
 	if(imageIndex > 0) {
 		images[imageIndex-1].style.display = "none";
